@@ -1278,20 +1278,20 @@
                             </div>
                         </div>
                     </div>
-                    <form class="contact-form" id="contactForm">
+                    <form class="contact-form" id="contactForm" action="https://formspree.io/f/mjkbwrnw" method="POST">
                         <div class="form-row">
                             <div class="form-group">
-                                <input type="text" placeholder="Your Name" required>
+                                <input type="text" name="name" placeholder="Your Name" required>
                             </div>
                             <div class="form-group">
-                                <input type="email" placeholder="Your Email" required>
+                                <input type="email" name="email" placeholder="Your Email" required>
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" placeholder="Subject" required>
+                            <input type="text" name="subject" placeholder="Subject" required>
                         </div>
                         <div class="form-group">
-                            <textarea placeholder="Tell me about your project..." rows="6" required></textarea>
+                            <textarea name="message" placeholder="Tell me about your project..." rows="6" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
@@ -1526,20 +1526,44 @@
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Simulate form submission
             const button = this.querySelector('button');
             const originalText = button.textContent;
             button.textContent = 'Sending...';
             button.disabled = true;
             
-            setTimeout(() => {
-                button.textContent = 'Message Sent!';
+            // Get form data
+            const formData = new FormData(this);
+            
+            // Submit to Formspree (replace with your actual form endpoint)
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    button.textContent = 'Message Sent!';
+                    button.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.style.background = 'linear-gradient(135deg, var(--primary), var(--primary-dark))';
+                        button.disabled = false;
+                        this.reset();
+                    }, 3000);
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            }).catch(error => {
+                button.textContent = 'Error! Try Again';
+                button.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
                 setTimeout(() => {
                     button.textContent = originalText;
+                    button.style.background = 'linear-gradient(135deg, var(--primary), var(--primary-dark))';
                     button.disabled = false;
-                    this.reset();
-                }, 2000);
-            }, 1500);
+                }, 3000);
+                console.error('Error:', error);
+            });
         });
 
         // Parallax effect for hero section
