@@ -1455,6 +1455,13 @@ body::before {
     transition: all var(--transition-base);
     color: #ffffff;
     line-height: 1.2;
+    /* Limit title length for consistency */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 2.4em; /* 2 lines at 1.2 line-height */
 }
 
 .portfolio-item:hover .portfolio-content h3 {
@@ -1470,6 +1477,13 @@ body::before {
     color: #e0e0e0;
     transition: all var(--transition-base);
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+    /* Limit text to maintain consistent card sizes */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 4.5em; /* 3 lines at 1.5 line-height */
 }
 
 .portfolio-item:hover .portfolio-content p {
