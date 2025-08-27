@@ -107,6 +107,8 @@ body {
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
     position: relative;
+    /* Hide default cursor so only the custom circle shows (desktop pointers only) */
+    cursor: none;
 }
 
 /* Animated Background Grid */
@@ -182,20 +184,31 @@ body::before {
     pointer-events: none;
     z-index: 9999;
     mix-blend-mode: difference;
-    transition: all 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.3s, border-color 0.3s;
     backdrop-filter: blur(4px);
+    top: 0;
+    left: 0;
+    /* Center the circle over the real pointer */
+    transform: translate(-50%, -50%);
+    will-change: transform;
 }
 
 .cursor.hover {
-    transform: scale(3);
+    transform: translate(-50%, -50%) scale(2.6);
     background: rgba(var(--primary-rgb), 0.1);
     border-color: var(--accent);
     box-shadow: var(--glow);
 }
 
 .cursor.click {
-    transform: scale(0.3);
+    transform: translate(-50%, -50%) scale(0.3);
     background: var(--primary);
+}
+
+/* Disable custom cursor on touch / coarse pointers for usability */
+@media (pointer: coarse), (hover: none) {
+    body { cursor: auto; }
+    .cursor { display: none; }
 }
 
 /* Enhanced Background Animation */
@@ -359,12 +372,14 @@ body::before {
     font-weight: 600;
     font-size: var(--font-sm);
     position: relative;
-    transition: all var(--transition-base);
+    /* Limit transitioned properties to avoid repaint flicker affecting adjacent Hire Me button */
+    transition: color var(--transition-base), text-shadow var(--transition-base), background var(--transition-base), opacity var(--transition-base);
     padding: var(--space-sm) var(--space-md);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     border-radius: var(--radius-md);
     overflow: hidden;
+    will-change: transform;
 }
 
 .nav-link::before {
@@ -396,7 +411,7 @@ body::before {
 .nav-link:hover,
 .nav-link.active {
     color: var(--text-primary);
-    transform: translateY(-2px);
+    /* Remove vertical translate to prevent layout thrash that caused Hire Me flicker */
     text-shadow: 0 0 10px rgba(var(--primary-rgb), 0.5);
 }
 
@@ -417,7 +432,8 @@ body::before {
     text-decoration: none;
     font-weight: 800;
     font-size: var(--font-sm);
-    transition: all var(--transition-base);
+    /* Narrowed transition list for stability */
+    transition: background 400ms ease, color 400ms ease, border-color 400ms ease, box-shadow 400ms ease, transform 300ms ease;
     position: relative;
     overflow: hidden;
     border: 2px solid transparent;
@@ -425,30 +441,22 @@ body::before {
     letter-spacing: 0.1em;
     box-shadow: var(--shadow-md);
     font-family: 'Orbitron', monospace;
+    will-change: transform;
 }
 
 .hire-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 500ms ease;
+    /* Disabled shine animation to prevent blink near Contact link */
+    display: none;
 }
 
 .hire-btn:hover {
-    background: transparent;
-    color: var(--primary);
-    border-color: var(--primary);
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-xl), var(--glow);
-    text-shadow: 0 0 10px rgba(var(--primary-rgb), 0.8);
-}
-
-.hire-btn:hover::before {
-    left: 100%;
+    /* Keep original gradient to avoid flash */
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: var(--bg-dark);
+    border-color: var(--accent);
+    /* No translate to prevent boundary flicker */
+    box-shadow: 0 0 0 2px rgba(var(--primary-rgb), 0.4), var(--shadow-lg), var(--glow);
+    text-shadow: 0 0 8px rgba(var(--primary-rgb), 0.7);
 }
 
 /* Enhanced Mobile Menu */
@@ -1349,7 +1357,7 @@ body::before {
 /* Enhanced Portfolio Grid with Better Mobile Support */
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--space-2xl);
     margin-top: var(--space-4xl);
 }
@@ -1865,24 +1873,27 @@ body::before {
     position: fixed;
     bottom: var(--space-2xl);
     right: var(--space-2xl);
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     background: linear-gradient(135deg, var(--primary), var(--accent));
     color: var(--bg-dark);
-    border-radius: 50%;
+    border-radius: 65%;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    font-size: var(--font-xl);
+    font-size: var(--font-lg);
     font-weight: bold;
     opacity: 0;
     visibility: hidden;
     transition: all var(--transition-base);
     box-shadow: var(--shadow-lg);
-    border: 3px solid transparent;
+    border: 2px solid transparent;
     backdrop-filter: blur(10px);
     z-index: 1000;
+    /* Ensure perfect circle */
+    flex-shrink: 0;
+    box-sizing: border-box;
 }
 
 .scroll-top.visible {
@@ -1988,7 +1999,7 @@ body::before {
     }
     
     .portfolio-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     }
 }
 
@@ -2001,7 +2012,7 @@ body::before {
     }
 
     .portfolio-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
         gap: var(--space-xl);
     }
 
@@ -2031,7 +2042,8 @@ body::before {
     }
 
     .portfolio-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: var(--space-lg);
     }
 
     .image-container {
