@@ -1357,14 +1357,14 @@ body::before {
 /* Enhanced Portfolio Grid with Better Mobile Support */
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--space-2xl);
     margin-top: var(--space-4xl);
 }
 
 .portfolio-item {
     position: relative;
-    height: 450px;
+    height: 380px;
     border-radius: var(--radius-2xl);
     overflow: hidden;
     background: var(--bg-card);
@@ -1372,6 +1372,8 @@ body::before {
     transition: all var(--transition-slow);
     cursor: pointer;
     group: hover;
+    /* Better visibility */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .portfolio-item:hover {
@@ -1430,20 +1432,29 @@ body::before {
     position: relative;
     z-index: 2;
     height: 100%;
-    padding: var(--space-3xl);
+    padding: var(--space-2xl);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     color: var(--text-primary);
+    /* Better readability */
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.4) 50%,
+        transparent 100%
+    );
 }
 
 .portfolio-content h3 {
-    font-size: var(--font-3xl);
-    margin-bottom: var(--space-md);
+    font-size: var(--font-2xl);
+    margin-bottom: var(--space-sm);
     font-weight: 800;
     font-family: 'Orbitron', monospace;
-    text-shadow: 0 0 15px rgba(var(--primary-rgb), 0.3);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
     transition: all var(--transition-base);
+    color: #ffffff;
+    line-height: 1.2;
 }
 
 .portfolio-item:hover .portfolio-content h3 {
@@ -1452,12 +1463,13 @@ body::before {
 }
 
 .portfolio-content p {
-    margin-bottom: var(--space-lg);
-    opacity: 0.9;
-    line-height: 1.7;
-    font-size: var(--font-lg);
-    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+    opacity: 0.95;
+    line-height: 1.5;
+    font-size: var(--font-base);
+    color: #e0e0e0;
     transition: all var(--transition-base);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
 }
 
 .portfolio-item:hover .portfolio-content p {
@@ -1468,8 +1480,8 @@ body::before {
 .project-tech {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-sm);
-    margin-bottom: var(--space-lg);
+    gap: var(--space-xs);
+    margin-bottom: var(--space-md);
 }
 
 .tech-tag {
@@ -1999,7 +2011,8 @@ body::before {
     }
     
     .portfolio-grid {
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-xl);
     }
 }
 
@@ -2012,8 +2025,8 @@ body::before {
     }
 
     .portfolio-grid {
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: var(--space-xl);
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-lg);
     }
 
     .services-grid {
@@ -2042,7 +2055,7 @@ body::before {
     }
 
     .portfolio-grid {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        grid-template-columns: repeat(2, 1fr);
         gap: var(--space-lg);
     }
 
