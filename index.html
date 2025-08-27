@@ -212,7 +212,12 @@
                     <button class="filter-btn" data-filter="web">Web Apps</button>
                 </div>
                 <div class="portfolio-grid">
-                    <div class="portfolio-item" data-category="cv ml">
+                    <div class="portfolio-item" data-category="cv ml" 
+                         data-title="AI Medical Diagnostic System"
+                         data-description="Deep learning model for automated medical image analysis and diagnosis with 94% accuracy, revolutionizing healthcare diagnostics through AI-powered precision. This comprehensive system uses advanced convolutional neural networks to analyze medical images including X-rays, MRIs, and CT scans. The model was trained on over 100,000 medical images and can detect multiple conditions with high accuracy. Features include real-time processing, confidence scoring, and integration with hospital management systems."
+                         data-features="Real-time image analysis,94% diagnostic accuracy,Multi-condition detection,Hospital system integration,Confidence scoring,HIPAA compliant"
+                         data-tech="TensorFlow,CNN,Flask,React"
+                         data-live="#" data-github="#">
                         <div class="portfolio-bg"></div>
                         <div class="portfolio-content">
                             <h3>AI Medical Diagnostic System</h3>
@@ -223,10 +228,15 @@
                                 <span class="tech-tag">Flask</span>
                                 <span class="tech-tag">React</span>
                             </div>
-                            <a href="#" class="view-project">View Project</a>
+                            <button class="view-project" onclick="openProjectModal(this.closest('.portfolio-item'))">View Project</button>
                         </div>
                     </div>
-                    <div class="portfolio-item" data-category="ml">
+                    <div class="portfolio-item" data-category="ml"
+                         data-title="Real-time Fraud Detection"
+                         data-description="Advanced ML system for detecting fraudulent transactions with real-time monitoring and instant alerts, protecting millions of dollars in transactions daily. The system processes over 10,000 transactions per second using ensemble methods and anomaly detection algorithms. Features include adaptive learning, false positive reduction, and comprehensive reporting dashboard for financial institutions."
+                         data-features="Real-time processing,10k+ transactions/sec,Adaptive learning algorithms,False positive reduction,Comprehensive reporting,Multi-layer security"
+                         data-tech="Python,XGBoost,Kafka,Redis"
+                         data-live="#" data-github="#">
                         <div class="portfolio-bg"></div>
                         <div class="portfolio-content">
                             <h3>Real-time Fraud Detection</h3>
@@ -237,10 +247,15 @@
                                 <span class="tech-tag">Kafka</span>
                                 <span class="tech-tag">Redis</span>
                             </div>
-                            <a href="#" class="view-project">View Project</a>
+                            <button class="view-project" onclick="openProjectModal(this.closest('.portfolio-item'))">View Project</button>
                         </div>
                     </div>
-                    <div class="portfolio-item" data-category="nlp">
+                    <div class="portfolio-item" data-category="nlp"
+                         data-title="Multilingual Chatbot"
+                         data-description="Advanced conversational AI supporting 12 languages with context-aware responses, delivering seamless customer experiences across global markets. Built using transformer architecture with custom fine-tuning for domain-specific conversations. Supports real-time translation, sentiment analysis, and intent recognition with 95% accuracy across all supported languages."
+                         data-features="12 language support,Context-aware responses,Real-time translation,Sentiment analysis,Intent recognition,95% accuracy rate"
+                         data-tech="BERT,Transformers,FastAPI,Vue.js"
+                         data-live="#" data-github="#">
                         <div class="portfolio-bg"></div>
                         <div class="portfolio-content">
                             <h3>Multilingual Chatbot</h3>
@@ -251,10 +266,15 @@
                                 <span class="tech-tag">FastAPI</span>
                                 <span class="tech-tag">Vue.js</span>
                             </div>
-                            <a href="#" class="view-project">View Project</a>
+                            <button class="view-project" onclick="openProjectModal(this.closest('.portfolio-item'))">View Project</button>
                         </div>
                     </div>
-                    <div class="portfolio-item" data-category="cv">
+                    <div class="portfolio-item" data-category="cv"
+                         data-title="Smart Surveillance System"
+                         data-description="Computer vision application for real-time object detection and behavioral analysis, enhancing security through intelligent monitoring and automated threat detection. The system can track multiple objects simultaneously, detect suspicious behavior patterns, and send instant alerts. Features include facial recognition, crowd density analysis, and integration with existing security infrastructure."
+                         data-features="Real-time object detection,Behavioral analysis,Facial recognition,Crowd density analysis,Automated alerts,Security integration"
+                         data-tech="YOLO,OpenCV,PyTorch,Docker"
+                         data-live="#" data-github="#">
                         <div class="portfolio-bg"></div>
                         <div class="portfolio-content">
                             <h3>Smart Surveillance System</h3>
@@ -265,10 +285,15 @@
                                 <span class="tech-tag">PyTorch</span>
                                 <span class="tech-tag">Docker</span>
                             </div>
-                            <a href="#" class="view-project">View Project</a>
+                            <button class="view-project" onclick="openProjectModal(this.closest('.portfolio-item'))">View Project</button>
                         </div>
                     </div>
-                    <div class="portfolio-item" data-category="ml web">
+                    <div class="portfolio-item" data-category="ml web"
+                         data-title="Recommendation Engine"
+                         data-description="Collaborative filtering system for personalized content recommendations at scale, increasing user engagement by 40% through intelligent content discovery. The system processes user behavior patterns, content features, and social signals to generate highly personalized recommendations. Handles millions of users with sub-second response times using distributed computing and caching strategies."
+                         data-features="Collaborative filtering,40% engagement increase,Sub-second response,Millions of users,Distributed computing,Advanced caching"
+                         data-tech="Spark,MLlib,Django,PostgreSQL"
+                         data-live="#" data-github="#">
                         <div class="portfolio-bg"></div>
                         <div class="portfolio-content">
                             <h3>Recommendation Engine</h3>
@@ -279,10 +304,15 @@
                                 <span class="tech-tag">Django</span>
                                 <span class="tech-tag">PostgreSQL</span>
                             </div>
-                            <a href="#" class="view-project">View Project</a>
+                            <button class="view-project" onclick="openProjectModal(this.closest('.portfolio-item'))">View Project</button>
                         </div>
                     </div>
-                    <div class="portfolio-item" data-category="nlp ml">
+                    <div class="portfolio-item" data-category="nlp ml"
+                         data-title="Sentiment Analysis Dashboard"
+                         data-description="Real-time social media sentiment tracking with interactive visualization dashboard, providing actionable insights for brand monitoring and market analysis. The system processes millions of social media posts daily, extracting sentiment, emotions, and trending topics. Features include customizable alerts, competitor analysis, and predictive sentiment forecasting using time series analysis."
+                         data-features="Real-time processing,Millions of posts daily,Emotion detection,Trending topics,Competitor analysis,Predictive forecasting"
+                         data-tech="NLTK,Streamlit,MongoDB,Plotly"
+                         data-live="#" data-github="#">
                         <div class="portfolio-bg"></div>
                         <div class="portfolio-content">
                             <h3>Sentiment Analysis Dashboard</h3>
@@ -293,7 +323,7 @@
                                 <span class="tech-tag">MongoDB</span>
                                 <span class="tech-tag">Plotly</span>
                             </div>
-                            <a href="#" class="view-project">View Project</a>
+                            <button class="view-project" onclick="openProjectModal(this.closest('.portfolio-item'))">View Project</button>
                         </div>
                     </div>
                 </div>
@@ -387,6 +417,33 @@
 
     <!-- Scroll to top button -->
     <a href="#home" class="scroll-top" id="scrollTop">↑</a>
+
+    <!-- Project Modal -->
+    <div class="project-modal" id="projectModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-header">
+                <h2 id="modalTitle">Project Title</h2>
+                <div class="modal-tech" id="modalTech">
+                    <!-- Tech tags will be inserted here -->
+                </div>
+            </div>
+            <div class="modal-body">
+                <p id="modalDescription">Full project description will appear here...</p>
+                <div class="modal-features">
+                    <h3>Key Features:</h3>
+                    <ul id="modalFeatures">
+                        <!-- Features will be inserted here -->
+                    </ul>
+                </div>
+                <div class="modal-links">
+                    <a href="#" class="btn btn-primary" id="modalLiveLink">Live Demo</a>
+                    <a href="#" class="btn btn-secondary" id="modalGithubLink">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
         // Loading screen
@@ -789,6 +846,76 @@
         document.addEventListener('DOMContentLoaded', () => {
             // Add any initialization code here
             console.log('Portfolio loaded successfully!');
+        });
+
+        // Project Modal Functions
+        function openProjectModal(portfolioItem) {
+            const modal = document.getElementById('projectModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDescription = document.getElementById('modalDescription');
+            const modalFeatures = document.getElementById('modalFeatures');
+            const modalTech = document.getElementById('modalTech');
+            const modalLiveLink = document.getElementById('modalLiveLink');
+            const modalGithubLink = document.getElementById('modalGithubLink');
+
+            // Get data from portfolio item
+            const title = portfolioItem.dataset.title;
+            const description = portfolioItem.dataset.description;
+            const features = portfolioItem.dataset.features.split(',');
+            const tech = portfolioItem.dataset.tech.split(',');
+            const liveLink = portfolioItem.dataset.live;
+            const githubLink = portfolioItem.dataset.github;
+
+            // Populate modal content
+            modalTitle.textContent = title;
+            modalDescription.textContent = description;
+            
+            // Clear and populate features
+            modalFeatures.innerHTML = '';
+            features.forEach(feature => {
+                const li = document.createElement('li');
+                li.textContent = feature.trim();
+                modalFeatures.appendChild(li);
+            });
+
+            // Clear and populate tech tags
+            modalTech.innerHTML = '';
+            tech.forEach(techItem => {
+                const span = document.createElement('span');
+                span.className = 'tech-tag';
+                span.textContent = techItem.trim();
+                modalTech.appendChild(span);
+            });
+
+            // Set links
+            modalLiveLink.href = liveLink;
+            modalGithubLink.href = githubLink;
+
+            // Show modal
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProjectModal() {
+            const modal = document.getElementById('projectModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Modal event listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            const modalClose = document.getElementById('modalClose');
+            const modalOverlay = document.getElementById('modalOverlay');
+
+            modalClose.addEventListener('click', closeProjectModal);
+            modalOverlay.addEventListener('click', closeProjectModal);
+
+            // Close modal with Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeProjectModal();
+                }
+            });
         });
     </script>
 </body>
