@@ -8,6 +8,7 @@
         // Custom cursor
         const cursor = document.getElementById('cursor');
         let mouseX = 0, mouseY = 0;
+        let currentX = 0, currentY = 0;
         
         document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
@@ -15,8 +16,10 @@
         });
 
         function updateCursor() {
-            cursor.style.left = mouseX + 'px';
-            cursor.style.top = mouseY + 'px';
+            // Immediate response for precise tracking
+            currentX = mouseX;
+            currentY = mouseY;
+            cursor.style.transform = `translate(${currentX}px, ${currentY}px) translate(-50%, -50%)`;
             requestAnimationFrame(updateCursor);
         }
         updateCursor();
