@@ -5,24 +5,63 @@
             }, 1200);
         });
 
-        // Custom cursor
+        // Custom cursor with smooth movement
         const cursor = document.getElementById('cursor');
         let mouseX = 0, mouseY = 0;
         let currentX = 0, currentY = 0;
+        const ease = 0.25; // More responsive following factor
         
         document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
+            
+            // Interactive background effects
+            createMouseEffect(e.clientX, e.clientY);
         });
 
         function updateCursor() {
-            // Immediate response for precise tracking
-            currentX = mouseX;
-            currentY = mouseY;
+            // Smooth easing movement
+            currentX += (mouseX - currentX) * ease;
+            currentY += (mouseY - currentY) * ease;
+            
             cursor.style.transform = `translate(${currentX}px, ${currentY}px) translate(-50%, -50%)`;
             requestAnimationFrame(updateCursor);
         }
         updateCursor();
+
+        // Interactive background effects
+        function createMouseEffect(x, y) {
+            const bgAnimation = document.getElementById('bgAnimation');
+            
+            // Create ripple effect
+            const ripple = document.createElement('div');
+            ripple.className = 'mouse-ripple';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            bgAnimation.appendChild(ripple);
+            
+            // Remove ripple after animation
+            setTimeout(() => {
+                if (ripple.parentNode) {
+                    ripple.parentNode.removeChild(ripple);
+                }
+            }, 1000);
+            
+            // Create trail particles
+            if (Math.random() < 0.1) { // Only occasionally create particles
+                const trailParticle = document.createElement('div');
+                trailParticle.className = 'trail-particle';
+                trailParticle.style.left = x + (Math.random() - 0.5) * 50 + 'px';
+                trailParticle.style.top = y + (Math.random() - 0.5) * 50 + 'px';
+                bgAnimation.appendChild(trailParticle);
+                
+                setTimeout(() => {
+                    if (trailParticle.parentNode) {
+                        trailParticle.parentNode.removeChild(trailParticle);
+                    }
+                }, 2000);
+            }
+        }
 
         // Background particles
         function createParticles() {
@@ -294,24 +333,31 @@
         }, { threshold: 0.1 });
 
         // Enhanced hover effects
-        document.querySelectorAll('.service-card').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-20px) scale(1.02)';
+        document.querySelectorAll('.service-card, .portfolio-item, .nav-link, .hire-btn, button, .social-links a, .stat-item, .logo, .logo-icon, .logo-text').forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                // Remove cursor.classList.add('hover') to prevent cursor scaling
+                element.style.transform = 'translateY(-10px) scale(1.05)';
+                element.style.boxShadow = '0 20px 60px rgba(124, 58, 237, 0.3), 0 0 0 1px rgba(124, 58, 237, 0.1)';
+                element.style.background = element.style.background || 'rgba(124, 58, 237, 0.05)';
+                element.style.transition = 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
             });
             
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(0) scale(1)';
+            element.addEventListener('mouseleave', () => {
+                // Remove cursor.classList.remove('hover') to prevent cursor scaling
+                element.style.transform = 'translateY(0) scale(1)';
+                element.style.boxShadow = '';
+                element.style.background = '';
+                element.style.transition = 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
             });
         });
 
-        document.querySelectorAll('.portfolio-item').forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                item.style.transform = 'translateY(-20px) scale(1.02)';
-            });
-            
-            item.addEventListener('mouseleave', () => {
-                item.style.transform = 'translateY(0) scale(1)';
-            });
+        // Add click effect to cursor
+        document.addEventListener('mousedown', () => {
+            cursor.classList.add('click');
+        });
+
+        document.addEventListener('mouseup', () => {
+            cursor.classList.remove('click');
         });
 
         // Keyboard navigation
