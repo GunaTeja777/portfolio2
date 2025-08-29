@@ -9,7 +9,7 @@
         const cursor = document.getElementById('cursor');
         let mouseX = 0, mouseY = 0;
         let currentX = 0, currentY = 0;
-        const ease = 0.25; // More responsive following factor
+        const ease = 0.8; // More accurate following factor
         
         document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
@@ -20,11 +20,15 @@
         });
 
         function updateCursor() {
-            // Smooth easing movement
+            // More accurate movement with higher precision
             currentX += (mouseX - currentX) * ease;
             currentY += (mouseY - currentY) * ease;
             
-            cursor.style.transform = `translate(${currentX}px, ${currentY}px) translate(-50%, -50%)`;
+            // Round to prevent subpixel rendering issues
+            const roundedX = Math.round(currentX);
+            const roundedY = Math.round(currentY);
+            
+            cursor.style.transform = `translate3d(${roundedX}px, ${roundedY}px, 0) translate(-50%, -50%)`;
             requestAnimationFrame(updateCursor);
         }
         updateCursor();
