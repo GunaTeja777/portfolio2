@@ -518,3 +518,185 @@
                 }
             });
         });
+
+// ==================== FUTURISTIC ANIMATIONS ==================== 
+
+// Mouse Follow Effect
+function createMouseFollower() {
+  const follower = document.createElement('div');
+  follower.className = 'mouse-follower';
+  follower.style.cssText = `
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, rgba(0,255,255,0.6) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: screen;
+    transform: translate(-50%, -50%);
+  `;
+  document.body.appendChild(follower);
+
+  document.addEventListener('mousemove', (e) => {
+    follower.style.left = e.clientX + 'px';
+    follower.style.top = e.clientY + 'px';
+  });
+}
+
+// Random Particles Generator
+function createFloatingParticles(count = 20) {
+  for (let i = 0; i < count; i++) {
+    const particle = document.createElement('div');
+    particle.className = 'floating-particle';
+    particle.style.cssText = `
+      position: absolute;
+      width: ${Math.random() * 4 + 2}px;
+      height: ${Math.random() * 4 + 2}px;
+      background: rgba(0, 255, 255, ${Math.random() * 0.8 + 0.2});
+      left: ${Math.random() * 100}%;
+      top: ${Math.random() * 100}%;
+      animation: float ${Math.random() * 10 + 5}s ease-in-out infinite;
+      animation-delay: ${Math.random() * 5}s;
+    `;
+    document.body.appendChild(particle);
+  }
+}
+
+// Glitch Effect
+function createGlitchEffect(element) {
+  setInterval(() => {
+    if (Math.random() < 0.1) { // 10% chance
+      element.style.transform = `translateX(${Math.random() * 4 - 2}px)`;
+      element.style.filter = `hue-rotate(${Math.random() * 360}deg)`;
+      
+      setTimeout(() => {
+        element.style.transform = '';
+        element.style.filter = '';
+      }, 150);
+    }
+  }, 2000);
+}
+
+// Typing Text Animation
+function typeWriter(element, text, speed = 100) {
+  let i = 0;
+  element.innerHTML = '';
+  
+  function type() {
+    if (i < text.length) {
+      element.innerHTML += text.charAt(i);
+      i++;
+      setTimeout(type, speed);
+    }
+  }
+  type();
+}
+
+// Dynamic Background Grid
+function createAnimatedGrid() {
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+  `;
+  
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  document.body.appendChild(canvas);
+
+  function drawGrid() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.strokeStyle = 'rgba(0, 255, 255, 0.1)';
+    ctx.lineWidth = 1;
+
+    const gridSize = 50;
+    const time = Date.now() * 0.001;
+
+    for (let x = 0; x < canvas.width; x += gridSize) {
+      for (let y = 0; y < canvas.height; y += gridSize) {
+        const alpha = Math.sin(time + x * 0.01 + y * 0.01) * 0.5 + 0.5;
+        ctx.globalAlpha = alpha * 0.3;
+        ctx.strokeRect(x, y, gridSize, gridSize);
+      }
+    }
+    
+    requestAnimationFrame(drawGrid);
+  }
+  drawGrid();
+}
+
+// Profile Photo Hover Effect
+function addProfileHoverEffect(profileElement) {
+  profileElement.style.transition = 'all 0.3s ease';
+  
+  profileElement.addEventListener('mouseenter', () => {
+    profileElement.style.transform = 'scale(1.05) rotate(2deg)';
+    profileElement.style.filter = 'brightness(1.1) contrast(1.1)';
+  });
+  
+  profileElement.addEventListener('mouseleave', () => {
+    profileElement.style.transform = 'scale(1) rotate(0deg)';
+    profileElement.style.filter = 'brightness(1) contrast(1)';
+  });
+}
+
+// Animated Code Background
+function createCodeRain() {
+  const codeChars = '01АИ{}[]()<>/\\|+-*=~`#@$%^&';
+  const container = document.createElement('div');
+  container.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+  `;
+  
+  for (let i = 0; i < 50; i++) {
+    const char = document.createElement('div');
+    char.textContent = codeChars[Math.floor(Math.random() * codeChars.length)];
+    char.style.cssText = `
+      position: absolute;
+      color: rgba(0, 255, 255, ${Math.random() * 0.5 + 0.1});
+      font-family: 'Courier New', monospace;
+      font-size: ${Math.random() * 14 + 10}px;
+      left: ${Math.random() * 100}%;
+      animation: matrix-rain ${Math.random() * 10 + 5}s linear infinite;
+      animation-delay: ${Math.random() * 5}s;
+    `;
+    container.appendChild(char);
+  }
+  
+  document.body.appendChild(container);
+}
+
+// Initialize all futuristic animations
+function initializeFuturisticEffects() {
+  createMouseFollower();
+  createFloatingParticles();
+  createAnimatedGrid();
+  createCodeRain();
+  
+  // Apply to your profile photo
+  const profilePhoto = document.querySelector('.profile-photo');
+  if (profilePhoto) {
+    addProfileHoverEffect(profilePhoto);
+    createGlitchEffect(profilePhoto);
+  }
+}
+
+// Initialize animations when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializeFuturisticEffects);
+} else {
+  initializeFuturisticEffects();
+}
