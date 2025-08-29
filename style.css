@@ -4,81 +4,157 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
 
-/* Enhanced CSS Custom Properties */
 :root {
-    /* Premium Color Palette */
-    --primary: #00f5ff;
-    --primary-rgb: 0, 245, 255;
-    --primary-dark: #00d4db;
-    --primary-light: #4dfaff;
-    --secondary: #6c757d;
-    --accent: #ff0080;
-    --accent-hover: #e6006b;
-    --accent-rgb: 255, 0, 128;
-    
-    /* Dark Theme Colors */
-    --bg-dark: #000000;
-    --bg-card: #0a0a0a;
-    --bg-surface: #0f0f0f;
-    --bg-elevated: #1a1a1a;
-    --bg-glass: rgba(0, 245, 255, 0.03);
-    --bg-glass-hover: rgba(0, 245, 255, 0.08);
-    
-    /* Text Colors */
-    --text-primary: #ffffff;
-    --text-secondary: #a0a0a0;
-    --text-muted: #6a6a6a;
-    --text-disabled: #404040;
-    
-    /* Border & Shadow */
-    --border: rgba(0, 245, 255, 0.12);
-    --border-hover: rgba(0, 245, 255, 0.3);
-    --border-focus: rgba(0, 245, 255, 0.5);
-    --shadow-sm: 0 2px 8px rgba(0, 245, 255, 0.15);
-    --shadow-md: 0 8px 32px rgba(0, 245, 255, 0.2);
-    --shadow-lg: 0 20px 64px rgba(0, 245, 255, 0.25);
-    --shadow-xl: 0 32px 128px rgba(0, 245, 255, 0.3);
-    --glow: 0 0 40px rgba(0, 245, 255, 0.4);
-    --glow-accent: 0 0 30px rgba(255, 0, 128, 0.4);
-    
-    /* Spacing System */
-    --space-xs: 0.25rem;   /* 4px */
-    --space-sm: 0.5rem;    /* 8px */
-    --space-md: 1rem;      /* 16px */
-    --space-lg: 1.5rem;    /* 24px */
-    --space-xl: 2rem;      /* 32px */
-    --space-2xl: 3rem;     /* 48px */
-    --space-3xl: 4rem;     /* 64px */
-    --space-4xl: 6rem;     /* 96px */
-    --space-5xl: 8rem;     /* 128px */
-    
-    /* Typography Scale */
-    --font-xs: 0.75rem;    /* 12px */
-    --font-sm: 0.875rem;   /* 14px */
-    --font-base: 1rem;     /* 16px */
-    --font-lg: 1.125rem;   /* 18px */
-    --font-xl: 1.25rem;    /* 20px */
-    --font-2xl: 1.5rem;    /* 24px */
-    --font-3xl: 1.875rem;  /* 30px */
-    --font-4xl: 2.25rem;   /* 36px */
-    --font-5xl: 3rem;      /* 48px */
-    --font-6xl: 3.75rem;   /* 60px */
-    --font-7xl: 4.5rem;    /* 72px */
-    --font-8xl: 6rem;      /* 96px */
-    
-    /* Border Radius */
-    --radius-sm: 0.375rem;
-    --radius-md: 0.5rem;
-    --radius-lg: 0.75rem;
-    --radius-xl: 1rem;
-    --radius-2xl: 1.5rem;
-    --radius-full: 9999px;
-    
-    /* Transitions */
-    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-spring: 600ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  /* Spectacular ML-Inspired Color Palette */
+  --primary: #7c3aed;           /* Electric Violet - Neural networks */
+  --primary-rgb: 124, 58, 237;
+  --primary-dark: #5b21b6;      /* Deep Purple */
+  --primary-light: #a78bfa;     /* Light Violet Glow */
+  --secondary: #06b6d4;         /* Brilliant Cyan */
+  --accent: #f59e0b;            /* Golden Amber - Highlights */
+  --accent-hover: #d97706;
+  --accent-rgb: 245, 158, 11;
+  
+  /* AI/ML Inspired Colors */
+  --neural-violet: #8b5cf6;     /* Deep Neural Purple */
+  --neural-cyan: #06d6a0;       /* Bright Teal */
+  --neural-pink: #ec4899;       /* Hot Pink */
+  --neural-gold: #fbbf24;       /* Rich Gold */
+  --data-viz-1: #10b981;        /* Emerald Green */
+  --data-viz-2: #f43f5e;        /* Rose Red */
+  --data-viz-3: #06b6d4;        /* Sky Blue */
+  --data-viz-4: #8b5cf6;        /* Purple */
+  --data-viz-5: #f59e0b;        /* Amber */
+  --data-viz-6: #ec4899;        /* Pink */
+  
+  /* Premium Dark Theme */
+  --bg-dark: #0c0c0c;           /* Rich Black */
+  --bg-card: #111111;           /* Card Background */
+  --bg-surface: #161616;        /* Surface Elements */
+  --bg-elevated: #1f1f1f;       /* Elevated Components */
+  --bg-glass: rgba(124, 58, 237, 0.05);    /* Purple Glass */
+  --bg-glass-hover: rgba(124, 58, 237, 0.12);
+  --bg-neural: rgba(6, 182, 212, 0.06);    /* Cyan Neural Bg */
+  --bg-mesh: radial-gradient(circle at 20% 50%, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
+             radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.15) 0%, transparent 50%),
+             radial-gradient(circle at 40% 80%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
+  
+  /* Gradient Collections */
+  --bg-gradient-primary: linear-gradient(135deg, #7c3aed 0%, #06b6d4 50%, #10b981 100%);
+  --bg-gradient-accent: linear-gradient(135deg, #f59e0b 0%, #ec4899 50%, #8b5cf6 100%);
+  --bg-gradient-neural: linear-gradient(45deg, #7c3aed 0%, #06d6a0 50%, #f59e0b 100%);
+  --bg-gradient-data: linear-gradient(135deg, #10b981 0%, #06b6d4 25%, #8b5cf6 50%, #ec4899 75%, #f59e0b 100%);
+  
+  /* Sophisticated Text Colors */
+  --text-primary: #ffffff;      /* Pure White */
+  --text-secondary: #d1d5db;    /* Light Gray */
+  --text-muted: #9ca3af;        /* Medium Gray */
+  --text-disabled: #4b5563;     /* Dark Gray */
+  --text-accent: #7c3aed;       /* Purple for highlights */
+  --text-success: #10b981;      /* Emerald */
+  --text-warning: #f59e0b;      /* Amber */
+  --text-error: #f43f5e;        /* Rose */
+  --text-info: #06b6d4;         /* Cyan */
+  
+  /* Refined Borders & Effects */
+  --border: rgba(124, 58, 237, 0.18);
+  --border-hover: rgba(124, 58, 237, 0.4);
+  --border-focus: rgba(124, 58, 237, 0.6);
+  --border-cyan: rgba(6, 182, 212, 0.3);
+  --border-gold: rgba(245, 158, 11, 0.3);
+  --border-gradient: linear-gradient(90deg, 
+    rgba(124, 58, 237, 0.4) 0%, 
+    rgba(6, 182, 212, 0.4) 50%, 
+    rgba(245, 158, 11, 0.4) 100%);
+  
+  /* Spectacular Shadows & Glows */
+  --shadow-sm: 0 2px 8px rgba(124, 58, 237, 0.15);
+  --shadow-md: 0 8px 32px rgba(124, 58, 237, 0.2);
+  --shadow-lg: 0 20px 64px rgba(124, 58, 237, 0.25);
+  --shadow-xl: 0 32px 128px rgba(124, 58, 237, 0.3);
+  --shadow-2xl: 0 48px 192px rgba(124, 58, 237, 0.35);
+  --shadow-neural: 0 12px 48px rgba(6, 182, 212, 0.3);
+  
+  /* Epic Multi-layered Glows */
+  --glow: 
+    0 0 30px rgba(124, 58, 237, 0.6),
+    0 0 60px rgba(124, 58, 237, 0.4),
+    0 0 90px rgba(124, 58, 237, 0.2);
+  --glow-accent: 
+    0 0 25px rgba(245, 158, 11, 0.6),
+    0 0 50px rgba(245, 158, 11, 0.4),
+    0 0 75px rgba(245, 158, 11, 0.2);
+  --glow-neural: 
+    0 0 20px rgba(6, 182, 212, 0.7),
+    0 0 40px rgba(6, 182, 212, 0.5),
+    0 0 80px rgba(6, 182, 212, 0.3);
+  --glow-data: 
+    0 0 20px rgba(16, 185, 129, 0.6),
+    0 0 40px rgba(16, 185, 129, 0.4),
+    0 0 80px rgba(16, 185, 129, 0.2);
+  --glow-pink: 
+    0 0 25px rgba(236, 72, 153, 0.6),
+    0 0 50px rgba(236, 72, 153, 0.4);
+  
+  /* Extended Spacing System */
+  --space-xs: 0.25rem;   /* 4px */
+  --space-sm: 0.5rem;    /* 8px */
+  --space-md: 1rem;      /* 16px */
+  --space-lg: 1.5rem;    /* 24px */
+  --space-xl: 2rem;      /* 32px */
+  --space-2xl: 3rem;     /* 48px */
+  --space-3xl: 4rem;     /* 64px */
+  --space-4xl: 6rem;     /* 96px */
+  --space-5xl: 8rem;     /* 128px */
+  --space-6xl: 12rem;    /* 192px */
+  --space-7xl: 16rem;    /* 256px */
+  
+  /* Typography Scale */
+  --font-xs: 0.75rem;    /* 12px */
+  --font-sm: 0.875rem;   /* 14px */
+  --font-base: 1rem;     /* 16px */
+  --font-lg: 1.125rem;   /* 18px */
+  --font-xl: 1.25rem;    /* 20px */
+  --font-2xl: 1.5rem;    /* 24px */
+  --font-3xl: 1.875rem;  /* 30px */
+  --font-4xl: 2.25rem;   /* 36px */
+  --font-5xl: 3rem;      /* 48px */
+  --font-6xl: 3.75rem;   /* 60px */
+  --font-7xl: 4.5rem;    /* 72px */
+  --font-8xl: 6rem;      /* 96px */
+  --font-9xl: 8rem;      /* 128px */
+  
+  /* Border Radius */
+  --radius-xs: 0.25rem;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+  --radius-full: 9999px;
+  
+  /* Smooth Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: 600ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --transition-bounce: 800ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --transition-neural: 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  
+  /* Interactive Transforms */
+  --hover-lift: translateY(-3px);
+  --hover-lift-lg: translateY(-6px);
+  --active-scale: scale(0.97);
+  --focus-scale: scale(1.03);
+  
+  /* ML Workflow Colors */
+  --preprocessing: #06d6a0;     /* Teal */
+  --training: #7c3aed;          /* Purple */
+  --validation: #06b6d4;        /* Cyan */
+  --testing: #f59e0b;           /* Amber */
+  --deployment: #10b981;        /* Emerald */
+  --monitoring: #ec4899;        /* Pink */
 }
 
 /* Enhanced Reset & Base Styles */
@@ -2612,4 +2688,72 @@ body::before {
         height: auto !important;
         min-height: auto !important;
     }
+}
+
+/* Enhanced Utility Classes */
+.bg-neural-gradient {
+  background: var(--bg-gradient-neural);
+}
+
+.bg-data-gradient {
+  background: var(--bg-gradient-data);
+}
+
+.bg-mesh {
+  background: var(--bg-mesh);
+}
+
+.text-gradient-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-neural {
+  background: var(--bg-gradient-neural);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-data {
+  background: var(--bg-gradient-data);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glow-primary {
+  box-shadow: var(--glow);
+}
+
+.glow-accent {
+  box-shadow: var(--glow-accent);
+}
+
+.glow-neural {
+  box-shadow: var(--glow-neural);
+}
+
+.glow-data {
+  box-shadow: var(--glow-data);
+}
+
+.glow-pink {
+  box-shadow: var(--glow-pink);
+}
+
+.border-gradient {
+  border: 1px solid transparent;
+  background: linear-gradient(var(--bg-dark), var(--bg-dark)) padding-box,
+              var(--border-gradient) border-box;
+}
+
+.hover-glow {
+  transition: box-shadow var(--transition-base);
+}
+
+.hover-glow:hover {
+  box-shadow: var(--glow);
 }
