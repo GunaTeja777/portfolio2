@@ -1,0 +1,4 @@
+<!-- This is a placeholder for favicon.ico conversion -->
+<!-- You need to convert vvv.jpg to favicon.ico using an online converter -->
+<!-- Go to https://favicon.io/favicon-converter/ and upload vvv.jpg -->
+<!-- Download the favicon.ico and place it in your root folder -->
